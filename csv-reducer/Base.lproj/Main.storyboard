@@ -710,7 +710,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <button identifier="chooseButton" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RQB-J2-7ra">
-                                <rect key="frame" x="101" y="44" width="94" height="32"/>
+                                <rect key="frame" x="80" y="13" width="94" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="选择文件" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="cDb-YL-CX3">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -721,7 +721,7 @@
                                 </connections>
                             </button>
                             <button identifier="actionButton" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VoL-fr-aEr">
-                                <rect key="frame" x="358" y="44" width="94" height="32"/>
+                                <rect key="frame" x="337" y="13" width="94" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="拆分文件" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="QSr-Lp-lB3">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -750,7 +750,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5St-I0-2sJ">
-                                <rect key="frame" x="28" y="156" width="58" height="17"/>
+                                <rect key="frame" x="28" y="114" width="58" height="17"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="文件行数" id="4lt-k0-1Xh">
                                     <font key="font" size="13" name=".PingFangSC-Regular"/>
@@ -790,9 +790,18 @@
                                 </textFieldCell>
                             </textField>
                             <textField identifier="lineTextField" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="by5-XA-EAw">
-                                <rect key="frame" x="101" y="151" width="154" height="22"/>
+                                <rect key="frame" x="101" y="109" width="154" height="22"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="b3t-zW-umc">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField identifier="lineTextField" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oHo-1W-xoK">
+                                <rect key="frame" x="101" y="68" width="154" height="22"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="lmS-5C-p2B">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -826,7 +835,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jsQ-JE-YMh">
-                                <rect key="frame" x="28" y="114" width="58" height="17"/>
+                                <rect key="frame" x="28" y="153" width="58" height="17"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="文件列数" id="rMz-Ed-9sz">
                                     <font key="font" size="13" name=".PingFangSC-Regular"/>
@@ -835,7 +844,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField identifier="lineTextField" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Zr-V3-bYG">
-                                <rect key="frame" x="101" y="109" width="154" height="22"/>
+                                <rect key="frame" x="101" y="148" width="154" height="22"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="B67-Sw-XVK">
                                     <font key="font" metaFont="system"/>
@@ -852,12 +861,22 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="meS-Cp-Xxq">
+                                <rect key="frame" x="15" y="73" width="71" height="17"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="已处理行数" id="jFf-BJ-iwp">
+                                    <font key="font" size="13" name=".PingFangSC-Regular"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                     </view>
                     <connections>
                         <outlet property="columnField" destination="9Zr-V3-bYG" id="oqE-3a-boc"/>
                         <outlet property="fileButton" destination="RQB-J2-7ra" id="pgg-SN-eCD"/>
                         <outlet property="filenameField" destination="xCg-K8-9UJ" id="Fk9-BO-wAy"/>
+                        <outlet property="finishColumnField" destination="oHo-1W-xoK" id="4cR-vC-BOk"/>
                         <outlet property="lineField" destination="by5-XA-EAw" id="K6r-jY-UkT"/>
                         <outlet property="targetColumnField" destination="cbm-fR-eI5" id="oGk-CZ-59X"/>
                         <outlet property="targetIdField" destination="i7Q-kN-UOL" id="jLh-Dt-nch"/>

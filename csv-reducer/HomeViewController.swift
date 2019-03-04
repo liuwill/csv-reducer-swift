@@ -14,6 +14,7 @@ class HomeViewController: NSViewController {
     @IBOutlet weak var filenameField: NSTextField!
     @IBOutlet weak var lineField: NSTextField!
     @IBOutlet weak var columnField: NSTextField!
+    @IBOutlet weak var finishColumnField: NSTextField!
 
     @IBOutlet weak var targetSizeField: NSTextField!
     @IBOutlet weak var targetColumnField: NSTextField!
@@ -41,10 +42,10 @@ class HomeViewController: NSViewController {
         openPanel.canChooseFiles = false
         openPanel.title = "选择保存目录"
         openPanel.beginSheetModal(for:self.view.window!) { (response) in
+            openPanel.close()
             if response == NSApplication.ModalResponse.OK {
                 self.writeDownTargetFile(fileUrl: openPanel.url)
             }
-            openPanel.close()
         }
     }
 
@@ -80,51 +81,55 @@ class HomeViewController: NSViewController {
             fileSize = self.targetSizeField.intValue
         }
         
-        let fileContent = try! String.init(contentsOfFile: self.filePath)
-        let contentLines = fileContent.split(separator: "\n")
-        
-        let titleStr = contentLines[0]
-        let titleLine = contentLines[0].split(separator: ",")
-        if (titleLine.count < columnCount - 1) {
-            self.alertMessage(title: "文件格式不正确", message: "文件没有指定索引列")
-            return
-        }
+        // 读取并开始处理文件
+        var titleStr = ""
 
-        //        let singleFileContent = ""
-        //        let tmpDir = NSTemporaryDirectory()
-        //        let fileMap: [String: String]
+        var count:Int32 = 0
+        self.finishColumnField.intValue = 0
+        if let aStreamReader = StreamReader(path: self.filePath) {
+            defer {
+                aStreamReader.close()
+            }
 
-        var count = 0
-        for singleLine in contentLines {
-            if count == 0 {
+            while let singleLine = aStreamReader.nextLine() {
+                if count == 0 {
+                    count += 1
+                    titleStr = singleLine
+                    let titleLine = titleStr.split(separator: ",")
+                    if (titleLine.count < columnCount - 1) {
+                        self.alertMessage(title: "文件格式不正确", message: "文件没有指定索引列")
+                        return
+                    }
+                    continue
+                }
+                
                 count += 1
-                continue
-            }
+                let lineData = singleLine.split(separator: ",")
+                let idVal = lineData[1]
+                let idIntVal = Int32(idVal)
+                let fileNo = (idIntVal ?? 0 - startId) / fileSize
+                let lineFileName = fileUrl!.path + "/" + pureFileName + "-" + String(fileNo) + ".csv"
+                
+                //            print(lineFileName)
+                let fileURL = URL(fileURLWithPath: lineFileName)
+                let fileManager = FileManager.default
+                if !fileManager.fileExists(atPath: lineFileName) {
+                    let writeTitle = titleStr + "\n"
+                    let createSuccess = fileManager.createFile(atPath: lineFileName,contents:writeTitle.data(using: .utf8),attributes:nil)
+                    print("FILE Create: : \(createSuccess): " + lineFileName)
+                }
+                
+                let writeLine = singleLine + "\n"
+                do {
+                    let fileHandle = try FileHandle(forWritingTo: fileURL)
+                    fileHandle.seekToEndOfFile()
+                    fileHandle.write(writeLine.data(using: .utf8)!)
+                    fileHandle.closeFile()
+                } catch {
+                    print("Error writing to file \(error)")
+                }
 
-            count += 1
-            let lineData = singleLine.split(separator: ",")
-            let idVal = lineData[1]
-            let idIntVal = Int32(idVal)
-            let fileNo = (idIntVal ?? 0 - startId) / fileSize
-            let lineFileName = fileUrl!.path + "/" + pureFileName + "-" + String(fileNo) + ".csv"
-
-            //            print(lineFileName)
-            let fileURL = URL(fileURLWithPath: lineFileName)
-            let fileManager = FileManager.default
-            if !fileManager.fileExists(atPath: lineFileName) {
-                let writeTitle = titleStr + "\n"
-                let createSuccess = fileManager.createFile(atPath: lineFileName,contents:writeTitle.data(using: .utf8),attributes:nil)
-                print("FILE Create: : \(createSuccess): " + lineFileName)
-            }
-            
-            let writeLine = singleLine + "\n"
-            do {
-                let fileHandle = try FileHandle(forWritingTo: fileURL)
-                fileHandle.seekToEndOfFile()
-                fileHandle.write(writeLine.data(using: .utf8)!)
-                fileHandle.closeFile()
-            } catch {
-                print("Error writing to file \(error)")
+                self.finishColumnField.stringValue = String(count)
             }
         }
     }
@@ -164,6 +169,7 @@ class HomeViewController: NSViewController {
                     self.lineField.stringValue = String(count)
                     self.columnField.stringValue = String(firstLine.split(separator: ",").count)
                 }
+                self.finishColumnField.intValue = 0
                 self.filenameField.stringValue = selectedPath
             }
         }
