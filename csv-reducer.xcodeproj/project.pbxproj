@@ -12,6 +12,7 @@
 		B63D346C222A6237006898FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B63D346B222A6237006898FF /* Assets.xcassets */; };
 		B63D346F222A6237006898FF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B63D346D222A6237006898FF /* Main.storyboard */; };
 		B63D347B222A6237006898FF /* csv_reducerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63D347A222A6237006898FF /* csv_reducerTests.swift */; };
+		B6F8D1F1222D2C700057B424 /* StreamReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F8D1F0222D2C700057B424 /* StreamReader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		B63D347A222A6237006898FF /* csv_reducerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = csv_reducerTests.swift; sourceTree = "<group>"; };
 		B63D347C222A6237006898FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B63D3485222A66CC006898FF /* csv-reducer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "csv-reducer.entitlements"; sourceTree = "<group>"; };
+		B6F8D1F0222D2C700057B424 /* StreamReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamReader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 				B63D3485222A66CC006898FF /* csv-reducer.entitlements */,
 				B63D3467222A6235006898FF /* AppDelegate.swift */,
 				B63D3469222A6235006898FF /* HomeViewController.swift */,
+				B6F8D1F0222D2C700057B424 /* StreamReader.swift */,
 				B63D346B222A6237006898FF /* Assets.xcassets */,
 				B63D346D222A6237006898FF /* Main.storyboard */,
 				B63D3470222A6237006898FF /* Info.plist */,
@@ -202,6 +205,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6F8D1F1222D2C700057B424 /* StreamReader.swift in Sources */,
 				B63D346A222A6235006898FF /* HomeViewController.swift in Sources */,
 				B63D3468222A6235006898FF /* AppDelegate.swift in Sources */,
 			);
@@ -359,13 +363,13 @@
 				CODE_SIGN_ENTITLEMENTS = "csv-reducer/csv-reducer.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 8H29939S5P;
+				DEVELOPMENT_TEAM = NH3828744P;
 				INFOPLIST_FILE = "csv-reducer/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "liuwill.csv-reducer";
+				PRODUCT_BUNDLE_IDENTIFIER = com.liuwill.csvReducer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 			};
@@ -378,13 +382,13 @@
 				CODE_SIGN_ENTITLEMENTS = "csv-reducer/csv-reducer.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 8H29939S5P;
+				DEVELOPMENT_TEAM = NH3828744P;
 				INFOPLIST_FILE = "csv-reducer/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "liuwill.csv-reducer";
+				PRODUCT_BUNDLE_IDENTIFIER = com.liuwill.csvReducer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 			};

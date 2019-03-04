@@ -18,7 +18,7 @@ class HomeViewController: NSViewController {
     @IBOutlet weak var targetSizeField: NSTextField!
     @IBOutlet weak var targetColumnField: NSTextField!
     @IBOutlet weak var targetIdField: NSTextField!
-    
+
     var filePath = ""
 
     override func viewDidLoad() {
@@ -47,7 +47,7 @@ class HomeViewController: NSViewController {
             openPanel.close()
         }
     }
-    
+
     func alertMessage(title: String, message: String) {
         let alert: NSAlert = NSAlert()
         alert.messageText = title
@@ -56,20 +56,23 @@ class HomeViewController: NSViewController {
         alert.addButton(withTitle: "OK")
         alert.runModal()
     }
-    
+
     func writeDownTargetFile (fileUrl: URL?) {
         if(self.filePath.count < 1) {
             self.alertMessage(title: "未选择文件", message: "请先选择一个CSV文件")
             return
         }
-        
+
         let filenameData = self.filePath.split(separator: "/")
         let sourcePath = filenameData[0...filenameData.count - 2].joined(separator: "/")
-        
+        let fileName = filenameData[filenameData.count - 1]
+        let fileSplitArr = fileName.split(separator: ".")
+        let pureFileName = fileSplitArr[0]
+
         var startId: Int32 = 10000
         var columnCount: Int32 = 2
         var fileSize: Int32 = 5000
-        
+
         if (self.targetColumnField.stringValue.count > 0) {
             columnCount = self.targetColumnField.intValue
         }
@@ -86,25 +89,25 @@ class HomeViewController: NSViewController {
             self.alertMessage(title: "文件格式不正确", message: "文件没有指定索引列")
             return
         }
-        
+
         //        let singleFileContent = ""
         //        let tmpDir = NSTemporaryDirectory()
         //        let fileMap: [String: String]
-        
+
         var count = 0
         for singleLine in contentLines {
             if count == 0 {
                 count += 1
                 continue
             }
-            
+
             count += 1
             let lineData = singleLine.split(separator: ",")
             let idVal = lineData[1]
             let idIntVal = Int32(idVal)
             let fileNo = (idIntVal ?? 0 - startId) / fileSize
-            let lineFileName = fileUrl!.path + "/piece-" + String(fileNo) + ".csv"
-            
+            let lineFileName = fileUrl!.path + "/" + pureFileName + "-" + String(fileNo) + ".csv"
+
             //            print(lineFileName)
             let fileURL = URL(fileURLWithPath: lineFileName)
             let fileManager = FileManager.default
@@ -135,6 +138,8 @@ class HomeViewController: NSViewController {
         openPanel.allowedFileTypes = ["csv"]
         openPanel.title = "选择一个CSV文件"
         openPanel.beginSheetModal(for:self.view.window!) { (response) in
+            openPanel.close()
+
             if response == NSApplication.ModalResponse.OK {
                 let fileUrl = openPanel.url
                 let selectedPath = openPanel.url!.path
@@ -142,15 +147,25 @@ class HomeViewController: NSViewController {
                 
                 self.filePath = selectedPath
                 print("CSV SELECTED: " + selectedPath)
-                
+
+                if let aStreamReader = StreamReader(path: selectedPath) {
+                    defer {
+                        aStreamReader.close()
+                    }
+                    
+                    var count = 0
+                    var firstLine = ""
+                    while let line = aStreamReader.nextLine() {
+                        if (count == 0) {
+                            firstLine = line
+                        }
+                        count += 1
+                    }
+                    self.lineField.stringValue = String(count)
+                    self.columnField.stringValue = String(firstLine.split(separator: ",").count)
+                }
                 self.filenameField.stringValue = selectedPath
-//                let  readHandle = NSFileHandle.init(forReadingAtPath: selectedPath)
-                let fileContent = try! String.init(contentsOfFile: selectedPath)
-                let contentLines = fileContent.split(separator: "\n")
-                self.lineField.stringValue = String(contentLines.count)
-                self.columnField.stringValue = String(contentLines[0].split(separator: ",").count)
             }
-            openPanel.close()
         }
     }
     
