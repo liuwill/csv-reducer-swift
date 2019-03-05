@@ -710,7 +710,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <button identifier="chooseButton" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RQB-J2-7ra">
-                                <rect key="frame" x="80" y="13" width="94" height="32"/>
+                                <rect key="frame" x="95" y="31" width="94" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="选择文件" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="cDb-YL-CX3">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -720,19 +720,8 @@
                                     <action selector="chooseCsvFile:" target="XfG-lQ-9wD" id="hyj-f3-9ba"/>
                                 </connections>
                             </button>
-                            <button identifier="actionButton" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VoL-fr-aEr">
-                                <rect key="frame" x="337" y="13" width="94" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="拆分文件" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="QSr-Lp-lB3">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" size="13" name=".PingFangSC-Regular"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="handleFileSplit:" target="XfG-lQ-9wD" id="onY-Qs-0Ht"/>
-                                </connections>
-                            </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0tS-P6-tVH">
-                                <rect key="frame" x="42" y="194" width="44" height="17"/>
+                                <rect key="frame" x="42" y="201" width="44" height="17"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="文件名" id="AC7-w7-OB4">
                                     <font key="font" size="13" name=".PingFangSC-Regular"/>
@@ -741,7 +730,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h4B-7D-dCm">
-                                <rect key="frame" x="292" y="192" width="71" height="17"/>
+                                <rect key="frame" x="292" y="199" width="71" height="17"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="单文件尺寸" id="Y34-sR-uDp">
                                     <font key="font" size="13" name=".PingFangSC-Regular"/>
@@ -750,7 +739,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5St-I0-2sJ">
-                                <rect key="frame" x="28" y="114" width="58" height="17"/>
+                                <rect key="frame" x="28" y="124" width="58" height="17"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="文件行数" id="4lt-k0-1Xh">
                                     <font key="font" size="13" name=".PingFangSC-Regular"/>
@@ -763,7 +752,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </box>
                             <textField identifier="nameTextField" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xCg-K8-9UJ">
-                                <rect key="frame" x="101" y="190" width="154" height="22"/>
+                                <rect key="frame" x="101" y="197" width="154" height="22"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="OTY-Gb-m6C">
                                     <font key="font" metaFont="system"/>
@@ -772,7 +761,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField identifier="lineTextField" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gKq-kQ-DQt">
-                                <rect key="frame" x="374" y="190" width="92" height="22"/>
+                                <rect key="frame" x="374" y="197" width="92" height="22"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="LEj-Rx-svT">
                                     <font key="font" metaFont="system"/>
@@ -781,7 +770,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField identifier="rowTextField" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cbm-fR-eI5">
-                                <rect key="frame" x="374" y="151" width="92" height="22"/>
+                                <rect key="frame" x="374" y="158" width="92" height="22"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="AcI-TR-4qB">
                                     <font key="font" metaFont="system"/>
@@ -790,7 +779,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField identifier="lineTextField" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="by5-XA-EAw">
-                                <rect key="frame" x="101" y="109" width="154" height="22"/>
+                                <rect key="frame" x="101" y="119" width="154" height="22"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="b3t-zW-umc">
                                     <font key="font" metaFont="system"/>
@@ -798,8 +787,17 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="meS-Cp-Xxq">
+                                <rect key="frame" x="15" y="83" width="71" height="17"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="已处理行数" id="jFf-BJ-iwp">
+                                    <font key="font" size="13" name=".PingFangSC-Regular"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                             <textField identifier="lineTextField" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oHo-1W-xoK">
-                                <rect key="frame" x="101" y="68" width="154" height="22"/>
+                                <rect key="frame" x="101" y="78" width="154" height="22"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="lmS-5C-p2B">
                                     <font key="font" metaFont="system"/>
@@ -817,7 +815,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FLm-5w-Nq2">
-                                <rect key="frame" x="319" y="153" width="44" height="17"/>
+                                <rect key="frame" x="319" y="160" width="44" height="17"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="分组列" id="Bi4-me-Gmr">
                                     <font key="font" size="13" name=".PingFangSC-Regular"/>
@@ -826,7 +824,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField identifier="rowTextField" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i7Q-kN-UOL">
-                                <rect key="frame" x="374" y="109" width="92" height="22"/>
+                                <rect key="frame" x="374" y="116" width="92" height="22"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="rgh-9G-lUc">
                                     <font key="font" metaFont="system"/>
@@ -835,7 +833,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jsQ-JE-YMh">
-                                <rect key="frame" x="28" y="153" width="58" height="17"/>
+                                <rect key="frame" x="28" y="163" width="58" height="17"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="文件列数" id="rMz-Ed-9sz">
                                     <font key="font" size="13" name=".PingFangSC-Regular"/>
@@ -844,7 +842,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField identifier="lineTextField" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Zr-V3-bYG">
-                                <rect key="frame" x="101" y="148" width="154" height="22"/>
+                                <rect key="frame" x="101" y="158" width="154" height="22"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="B67-Sw-XVK">
                                     <font key="font" metaFont="system"/>
@@ -853,7 +851,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LXp-Pt-qn6">
-                                <rect key="frame" x="319" y="111" width="44" height="17"/>
+                                <rect key="frame" x="319" y="118" width="44" height="17"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="起始ID" id="6Rq-eq-tIu">
                                     <font key="font" size="13" name=".PingFangSC-Regular"/>
@@ -861,15 +859,17 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="meS-Cp-Xxq">
-                                <rect key="frame" x="15" y="73" width="71" height="17"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="已处理行数" id="jFf-BJ-iwp">
+                            <button identifier="actionButton" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VoL-fr-aEr">
+                                <rect key="frame" x="368" y="31" width="94" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="拆分文件" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="QSr-Lp-lB3">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" size="13" name=".PingFangSC-Regular"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="handleFileSplit:" target="XfG-lQ-9wD" id="onY-Qs-0Ht"/>
+                                </connections>
+                            </button>
                         </subviews>
                     </view>
                     <connections>
